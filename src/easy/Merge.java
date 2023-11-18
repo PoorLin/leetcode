@@ -9,7 +9,7 @@ public class Merge {
        int m = 3;
        int[] nums2 = {2,5,6};
        int n = 3;
-       merge2(nums1,m,nums2,n);
+       merge3(nums1,m,nums2,n);
 
         for (int a:nums1
              ) {
@@ -47,4 +47,41 @@ public class Merge {
             }
         }
     }
+
+    public static void merge3(int[] nums1, int m, int[] nums2, int n) {
+        //question 將兩個integer 合併再一起
+
+        if(m>0 && n>0){
+       int length=nums1.length;
+       int[] tmpNum=nums1.clone();
+       int tmpm=0;
+       int tmpn=0;
+   while(tmpm+tmpn<length){
+      if(tmpNum[tmpm]>nums2[tmpn]){
+          nums1[tmpm+tmpn]=nums2[tmpn];
+          tmpn++;
+      }else {
+          nums1[tmpm+tmpn]=nums1[tmpm];
+          tmpm++;
+      }
+
+       System.out.println(tmpm+" "+tmpn);
+   }
+
+
+        }else if(m>0 && n==0){
+
+
+        } else if (m==0 && n>0) {
+            for (int index=0;index<n;index++){
+                nums1[index]=nums2[index];
+            }
+
+            }
+
+        }
+
+
+
+
 }
