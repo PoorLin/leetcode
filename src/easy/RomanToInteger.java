@@ -6,8 +6,10 @@ import java.util.Map;
 
 public class RomanToInteger {
     public static void main(String[] args) {
-        String s="MCMXCIV";
-        System.out.println(   romanToIntBetterWay(s));
+      //  String s="MCMXCIV";
+        String s="III";
+
+        System.out.println(   romanToInt1(s));
 
 
     }
@@ -164,5 +166,40 @@ return val;
             }
         }
 return val;
+    }
+
+    public static int romanToInt1(String s) {
+Map<Character,Integer> roman=new HashMap<>();
+        roman.put('I',1);
+        roman.put('V',5);
+        roman.put('X',10);
+        roman.put('L',50);
+        roman.put('C',100);
+        roman.put('D',500);
+        roman.put('M',1000);
+        int intNumber=0;
+for(int a=0;a<s.length();a++){
+
+
+    if(a==0){
+        intNumber=roman.get(s.charAt(a));
+
+    }else {
+        if(roman.get(s.charAt(a-1))<roman.get(s.charAt(a))){
+            intNumber-=2*roman.get(s.charAt(a-1));
+            intNumber+=roman.get(s.charAt(a));
+        }else {
+            intNumber+=roman.get(s.charAt(a));
+        }
+
+    }
+}
+
+
+
+
+
+return intNumber;
+
     }
 }
