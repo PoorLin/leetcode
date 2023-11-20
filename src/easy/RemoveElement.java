@@ -5,12 +5,13 @@ public class RemoveElement {
      int[] nums = {3,2,2,3};
      int  val = 3;
 //     removeElement(nums,val);
-//        for (int a:nums
-//             ) {
-//            System.out.println(a);
-//
-//        }
-        System.out.println(  removeElement(nums,val));
+
+        System.out.println(  removeElement2(nums,val));
+        for (int a:nums
+        ) {
+            System.out.println(a);
+
+        }
     }
 
     public static int removeElement(int[] nums, int val) {
@@ -22,6 +23,24 @@ public class RemoveElement {
        }
    }
        return index;
+
+    }
+
+    public static int removeElement2(int[] nums, int val) {
+        //傳入一個int陣列和int，刪除此陣列的int 並計算刪除後陣列有幾個元素，排序任意
+      int counnt=nums.length;
+      int valContain=0;
+      int[] tmpNums=nums.clone();
+for(int a=0;a<nums.length;a++){
+    if(nums[a]==val){
+
+    }else {
+        nums[valContain++]=tmpNums[a];
+    }
+
+}
+return valContain;
+
 
     }
 
