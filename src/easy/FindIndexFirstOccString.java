@@ -25,8 +25,6 @@ public class FindIndexFirstOccString {
 if(haystack.length()-index<needle.length()){ //所剩字數不夠即退出
     break;
 }
-
-
             if (verify(index, haystack, needle)) {
         System.out.println("indx" + index);
         ans = index;
