@@ -22,7 +22,6 @@ public class TwoSum {
             int minusRe = target-nowInt;
             if(integerList.contains(minusRe)){
 
-
                 if(target==nowInt*2 && integerList.indexOf(nowInt)==index){
                  continue;
                 }else if(target==nowInt*2 && integerList.indexOf(nowInt)!=index){
@@ -33,14 +32,8 @@ public class TwoSum {
                     sec = integerList.indexOf(minusRe);
                     break;
                 }
-
-
             }
-
         }
-
-
-
         int[] ret={first,sec};
         return ret;
     }
