@@ -8,20 +8,32 @@ public class CountCompleteTreeNodes {
        int depth=(findLongestTreeRes(root));
        //先抓到最深的子樹
 
-return 1;
+return countNodesRes(root,depth,1);
     }
 
     public static int countNodesRes(TreeNode root,int depth,int nowDep) {
-        if(root.right !=null && root.left!=null){
-            countNodesRes(root.left,depth,nowDep+1);
-            countNodesRes(root.right,depth,nowDep+1);
-        } else if (root.right !=null) {
-            if(nowDep)
+        if(root.right!=null && root.left!=null){
+            int a=countNodesRes(root.left,depth,nowDep+1);
+            int b=countNodesRes(root.right,depth,nowDep+1);
+            return a+b+1;
+        }else if (root.right !=null){
+            int a = countNodesRes(root.right,depth,nowDep);
+            if(depth-1 == nowDep){
+                return 1+a;
+            }else {
+                return 0+a;
+            }
 
-        } else if (root.right !=null){
+        }else if (root.left !=null){
 
+            int a = countNodesRes(root.left,depth,nowDep);
+            if(depth-1 == nowDep){
+                return 1+a;
+            }else {
+                return 0+a;
+            }
         }else {
-
+      return 1;
 
         }
 
