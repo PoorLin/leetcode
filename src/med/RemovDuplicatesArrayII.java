@@ -1,4 +1,4 @@
-package easy;
+package med;
 
 public class RemovDuplicatesArrayII {
 
