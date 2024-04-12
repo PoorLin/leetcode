@@ -60,6 +60,23 @@ return nonRepeated;
         return nonRepeated;
     }
 
+
+
+    public int myReWrite(int[] nums) {
+        int nowindex=-1;
+        int nowInt = -101;
+        int numLen = nums.length;
+        for(int index = 0 ; index<numLen;index++){
+            if(nums[index]>nowInt){
+                nowInt=nums[index];
+                nowindex++;
+                nums[nowindex]=nums[index];
+            }
+        }
+
+        return nowindex+1;
+
+    }
     }
 
 
