@@ -1,7 +1,9 @@
 package med;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class CopyListwithRandomPointer {
 
@@ -19,7 +21,7 @@ public class CopyListwithRandomPointer {
     }
 
 
-    public Node copyRandomList(Node head) {
+    public Node copyRandomList1(Node head) {
         if(head ==null){
             return null;
         }
@@ -47,6 +49,29 @@ public class CopyListwithRandomPointer {
         }
 
         return newHead;
+    }
+    public Node copyRandomList(Node head) {
+        if(head ==null){
+            return null;
+        }
+       Node tmp = head;
+        Map<Node,Node> map = new HashMap<>();
+
+        while (tmp!=null){
+            map.put(tmp,new Node(tmp.val));
+            tmp=tmp.next;
+        }
+        tmp=head;
+        while (tmp!=null){
+            map.get(tmp).next= map.get(tmp.next);
+            map.get(tmp).random = map.get(tmp.random);
+            tmp=tmp.next;
+        }
+
+
+
+
+        return map.get(head);
     }
 }
 
