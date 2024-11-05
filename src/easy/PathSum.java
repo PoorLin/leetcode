@@ -32,4 +32,17 @@ return sumSet.contains(targetSum);
 
     }
 
+
+
+    public boolean hasPathSumBetter(TreeNode root, int targetSum) {
+        if(root == null){
+            return false;
+        }
+        if(root.val == targetSum && root.left == null && root.right == null){
+            return true;
+        }
+
+        return hasPathSumBetter(root.left,targetSum-root.val) || hasPathSumBetter(root.right,targetSum- root.val);
+    }
+
 }
